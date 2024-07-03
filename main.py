@@ -22,7 +22,7 @@ def dados(quantidade):
             case _ :
                 return
     
-    return f'Vitórias: {vitorias} \n Nada: {nada} \n Controles: {controles} \n Entropias: {entropias}' 
+    return f'Vitórias: {vitorias} \nControles: {controles} \nNada: {nada} \nEntropias: {entropias}' 
     
     
 
@@ -42,7 +42,7 @@ async def on_message(message):
     if message.author == client.user:
          return
 
-    if message.content.startswith('$d'):
+    if message.content.startswith('*d'):
         await message.channel.send(dados(int(message.content[2:])))
 
 
