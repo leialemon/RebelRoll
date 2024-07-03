@@ -1,7 +1,11 @@
-import random
-import os
 import discord
 from discord.ext import commands
+import os
+from dotenv import dotenv_values 
+from dotenv import load_dotenv 
+import random
+
+load_dotenv()
 
 def dados(quantidade):
     vitorias = 0
@@ -46,8 +50,11 @@ async def on_message(message):
         await message.channel.send(dados(int(message.content[2:])))
 
 
-token = os.environ['TOKEN']
-client.run(token)
+token = os.getenv('TOKEN')
+
+client.run(str(token))
+
+
 
 '''
 implementar função de reroll. Input? Criar dicionário com os valores do resultado?
