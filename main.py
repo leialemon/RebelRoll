@@ -1,6 +1,8 @@
 import discord
+from discord.ext import commands
 import os
 from funcoes import dados
+
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -11,6 +13,7 @@ client = discord.Client(intents=intents)
 async def on_ready():
     print(f'We have logged in as {client.user}')
 
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -19,10 +22,10 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
-    if message.content.startswith('*d'):
-      quantidade = int(message.content.split('*d')[1])
-      dados(quantidade)
-      
+bot = commands.Bot(command_prefix='$', intents=intents)
+@bot.command()
+async def roll(ctx, quantidade):
+  await ctx.send(f'rolar {quantidade} dados')
       
       
 token = os.environ['TOKEN']
