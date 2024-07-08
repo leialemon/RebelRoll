@@ -26,7 +26,7 @@ def dados(quantidade):
             case _ :
                 return
     
-    return f'Vitórias: {vitorias} \nControles: {controles} \nNada: {nada} \nEntropias: {entropias}' 
+    return f'Vitórias: {vitorias} \nControles: {controles} \nNulo: {nada} \nEntropias: {entropias}' 
     
     
 
